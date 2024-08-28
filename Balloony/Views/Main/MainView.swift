@@ -92,7 +92,7 @@ struct MainView: View {
             .gesture(drag)
             
             // MARK: Layer 3: Navigation Bar
-            NavigationBarView()
+            NavigationBarView(menuAction: balloonModelData.showMenu)
                 .zIndex(2)
                 .padding(.top, Insets.top.value)
 
@@ -109,13 +109,22 @@ struct MainView: View {
                 endPoint: .bottom
             )
         )
-        
-    } //: ZStack
+    }
+    
 }
 
+// MARK: - Preview
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+            .ignoresSafeArea()
             .environmentObject(BalloonModelData())
     }
 }
+
+#Preview {
+    MainView()
+        .environmentObject(BalloonModelData())
+}
+
+

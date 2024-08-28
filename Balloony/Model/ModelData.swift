@@ -10,6 +10,8 @@ import SwiftUI
 class BalloonModelData: ObservableObject {
     
     // UI
+    @Published var isMenuShown: Bool = false
+    
     @Published var selectedBalloonIdx = 0 {
         didSet {
             // set to default values
@@ -44,6 +46,7 @@ class BalloonModelData: ObservableObject {
         ),
         .init(
             name: "Saturn",
+            price: 101,
             gradientColors: [
                 .combination4a,
                 .combination4b
@@ -75,5 +78,14 @@ class BalloonModelData: ObservableObject {
             topViewLength: 86
         )
     ]
+    
+    // Events
+    func showMenu() {
+        isMenuShown = true
+    }
+    
+    func hideMenu() {
+        isMenuShown = false
+    }
     
 }

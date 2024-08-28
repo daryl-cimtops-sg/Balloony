@@ -10,7 +10,7 @@ import SwiftUI
 struct SaleBannerView: View {
     // MARK: - Properties
     var title: String = "10% OFF"
-    
+        
     var banner: some View {
         GeometryReader { geometry in
             
@@ -86,7 +86,7 @@ struct SaleBannerView: View {
             
         } //: ZStack
         .frame(width: 43, height: 54)
-    }
+    } 
 }
 
 // MARK: - Preview

@@ -115,14 +115,23 @@ struct ItemCardView_Previews: PreviewProvider {
     static var balloons = BalloonModelData().balloons
 
     static var previews: some View {
-        ItemCardView(
-            balloon: balloons[0],
-            selectedSize: .constant(.fiveInch),
-            quantity: .constant("1"),
-            totalPrice: balloons[0].price
-        )
-            .previewLayout(.sizeThatFits)
-            .padding(21)
-            .background(Colors.background2.color)
+        Group {
+            
+            ForEach(balloons, id: \.name) { balloon in
+                
+                ItemCardView(
+                    balloon: balloon,
+                    selectedSize: .constant(.fiveInch),
+                    quantity: .constant("1"),
+                    totalPrice: balloon.price
+                )
+                .previewDisplayName(balloon.name)
+            }
+            
+        }
+        .previewLayout(.sizeThatFits)
+        .padding(21)
+        .background(Colors.background2.color)
     }
+    
 }

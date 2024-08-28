@@ -9,13 +9,14 @@ import SwiftUI
 
 struct NavigationBarView: View {
     // MARK: - Properties
+    var menuAction: () -> Void
 
     // MARK: - Body
     var body: some View {
         HStack(spacing: 0) {
             
             // Col 1: Menu
-            Button(action: {}) {
+            Button(action: menuAction) {
                 Icons.menu.image
                     .resizable()
                     .foregroundColor(Colors.primary.color)
@@ -52,7 +53,7 @@ struct NavigationBarView: View {
 struct NavigationBarView_Previews: PreviewProvider {
     static var previews: some View {
         
-        NavigationBarView()
+        NavigationBarView(menuAction: {})
             .previewLayout(.sizeThatFits)
             .previewDisplayName("Navigation Bar")
             .background(Colors.background.color)
